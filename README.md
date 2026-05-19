@@ -1,8 +1,12 @@
-# Mini Agent — ~100 satırda local AI asistanı
+# Mini Agent — ~100 satırda local AI asistanı (v1)
 
 Bir dosya. Sıfır bağımlılık. Makinende çalışan bir AI agent.
 
 Bu repo, modern "agent" sistemlerinin (Claude Code, OpenClaw, LangChain, vb.) altında dönen mantığı **çıplak haliyle** göstermek için yazıldı. ~110 satır Python, sadece standart kütüphane.
+
+> 📍 **v1 sayfasındasınız** — bu sürüm temel agent loop'u ve 3 hardcoded tool'u anlatıyor (blog 1'in kod eki).
+> Skill loader + lazy load + markdown-as-skill paradigmasını gören **v2 mevcut**:
+> [tree/v2](https://github.com/yildirimozal/miniagent/tree/v2) · [main repo](https://github.com/yildirimozal/miniagent)
 
 ## Neden bu repo var?
 
