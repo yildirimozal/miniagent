@@ -5,7 +5,7 @@ description: Verilen düz metni (şifreyi) bcrypt algoritması ile hashler.
 icon: "🔐"
 example_prompt: "Şu şifre için bcrypt hash oluştur: gizlisifre123"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, bcrypt_gen]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

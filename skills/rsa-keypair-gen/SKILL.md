@@ -5,7 +5,7 @@ description: Test amaçlı hızlıca RSA Public ve Private anahtar çifti oluşt
 icon: "🗝️"
 example_prompt: "Bana bir RSA anahtar çifti oluştur."
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, rsa_gen]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

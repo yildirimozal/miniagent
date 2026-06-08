@@ -5,7 +5,7 @@ description: cURL komutunu JavaScript fetch() metoduna çevirir.
 icon: "🌐"
 example_prompt: "Şu cURL'i fetch yap: curl -X POST https://api.com -d '{\"x\": 1}'"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, curl_to_fetch]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

@@ -5,7 +5,7 @@ description: Bir API veya web adresine istek atıp HTTP durumunu ve gecikmesini 
 icon: "🩺"
 example_prompt: "API ayakta mı kontrol et: https://api.github.com"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, api_check]
+permissions: [shell_safe, network_read]
 author:
   name: Yıldırım Özal
   github: yildirimozal

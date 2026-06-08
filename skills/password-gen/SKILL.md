@@ -5,7 +5,7 @@ description: Rastgele güçlü şifre oluşturur.
 icon: "🔑"
 example_prompt: "Bana 16 karakterli güvenli bir şifre oluştur."
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, password_gen]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

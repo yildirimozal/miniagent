@@ -5,7 +5,7 @@ description: Sıkışık veya okunması zor XML/HTML metinlerini girintili ve d�
 icon: "📝"
 example_prompt: "Şu XML'i düzelt: <root><item>test</item></root>"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, xml_format]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

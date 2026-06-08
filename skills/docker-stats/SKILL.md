@@ -5,7 +5,7 @@ description: Çalışan Docker konteynerlerinin kaynak kullanımını gösterir.
 icon: "🐳"
 example_prompt: "Hangi docker konteynerleri ne kadar RAM yiyor?"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, docker_stats]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

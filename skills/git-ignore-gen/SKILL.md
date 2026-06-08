@@ -5,7 +5,7 @@ description: Belirtilen teknolojiler için hazır .gitignore şablonu oluşturur
 icon: "🙈"
 example_prompt: "Node, Python ve macOS için bir gitignore oluştur"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, git_ignore]
+permissions: [shell_safe, network_read]
 author:
   name: Yıldırım Özal
   github: yildirimozal

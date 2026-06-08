@@ -5,7 +5,7 @@ description: Tek satırlık veya karmaşık SQL sorgularını okunabilir, girint
 icon: "🗄️"
 example_prompt: "Şu SQL'i formatla: SELECT id, name FROM users WHERE age > 18 ORDER BY name"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, sql_format]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

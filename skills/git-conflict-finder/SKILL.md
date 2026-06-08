@@ -5,7 +5,7 @@ description: Projedeki çözülmemiş Git conflict (çakışma) noktalarını bu
 icon: "⚔️"
 example_prompt: "Projede çözülmemiş git conflict var mı?"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, git_conflict]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

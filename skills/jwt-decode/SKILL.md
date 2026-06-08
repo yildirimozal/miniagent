@@ -5,7 +5,7 @@ description: JWT (JSON Web Token) içeriğini çözümler ve gösterir.
 icon: "🎫"
 example_prompt: "Şu JWT token'ını decode et: eyJhbG..."
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, jwt_decode]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

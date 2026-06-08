@@ -5,7 +5,7 @@ description: Verilen bir JSON objesinden TypeScript Interface (arayüz) oluştur
 icon: "📘"
 example_prompt: "Şu JSON'dan TS interface yap: {\"id\": 1, \"name\": \"Ali\"}"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, json_to_ts]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

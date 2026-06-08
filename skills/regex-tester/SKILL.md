@@ -5,7 +5,7 @@ description: Verilen bir metin üzerinde Regex (düzenli ifade) eşleşmelerini 
 icon: "🔍"
 example_prompt: "Şu metinde e-posta adreslerini bul: metin..., regex: [a-z]+@[a-z]+.com"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, regex_test]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

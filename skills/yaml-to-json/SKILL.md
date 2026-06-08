@@ -5,7 +5,7 @@ description: YAML formatındaki metni JSON formatına çevirir.
 icon: "🔄"
 example_prompt: "Bu YAML'ı JSON yap: ..."
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, yaml_json]
+permissions: [shell_safe]
 author:
   name: Yıldırım Özal
   github: yildirimozal

@@ -5,7 +5,7 @@ description: .env dosyası formatındaki key-value çiftlerini JSON formatına d
 icon: "⚙️"
 example_prompt: "Bu env değişkenlerini JSON'a çevir: PORT=3000\nNODE_ENV=dev"
 ajanox: ">=1.0.0 <2.0.0"
-permissions: [shell_safe, env_json]
+permissions: [shell_safe, file_read]
 author:
   name: Yıldırım Özal
   github: yildirimozal
