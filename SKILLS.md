@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 60 skill** · 9 kategori
+> **Toplam: 69 skill** · 10 kategori
 
 ---
 
@@ -17,6 +17,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 10 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
 | [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
+| [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🔀 Git İşlemleri](#-git-i̇şlemleri) | 6 | Log, status, diff, branch, conflict, gitignore |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 3 | Satır/kelime sayımı, slugify, bul-değiştir |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 2 | Tarih aritmetiği, zaman dilimi dönüşümü |
@@ -108,6 +109,24 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 
 ---
 
+## 📑 Ofis / Belge
+
+> ℹ️ Bu kategorideki skill'ler **LibreOffice** (`soffice`) gerektirir; bazıları ek araç (`pdftoppm`) kullanır.
+
+| İkon | Skill | Açıklama | Örnek Prompt |
+|:---:|---|---|---|
+| 📄 | [`office-to-pdf`](skills/office-to-pdf/SKILL.md) | Ofis belgesini (docx/odt/xlsx/pptx) headless PDF'e çevirir. | *"rapor.docx dosyasını PDF yap"* |
+| 📚 | [`office-batch-pdf`](skills/office-batch-pdf/SKILL.md) | Bir klasördeki tüm ofis belgelerini toplu PDF'e çevirir. | *"sunumlar klasöründekileri PDF yap"* |
+| 🔄 | [`office-convert`](skills/office-convert/SKILL.md) | Formatlar arası dönüştürür (docx↔odt, xlsx↔ods, pptx↔odp). | *"rapor.docx'i odt'ye çevir"* |
+| 📊 | [`spreadsheet-to-csv`](skills/spreadsheet-to-csv/SKILL.md) | Hesap tablosunu (xlsx/ods) CSV'ye çevirir. | *"veriler.xlsx'i CSV yap"* |
+| 📈 | [`csv-to-xlsx`](skills/csv-to-xlsx/SKILL.md) | CSV'yi Excel (xlsx) veya Calc (ods) tablosuna çevirir. | *"veriler.csv'yi xlsx yap"* |
+| 📝 | [`office-to-text`](skills/office-to-text/SKILL.md) | Ofis belgesinden (docx/odt) düz metin çıkarır. | *"rapor.docx metnini çıkar"* |
+| 🌐 | [`office-to-html`](skills/office-to-html/SKILL.md) | Ofis belgesini (docx/odt) HTML'e çevirir. | *"yazi.docx'i HTML yap"* |
+| 🖼️ | [`office-to-images`](skills/office-to-images/SKILL.md) | Sunum/belge sayfalarını PNG görsele çevirir. | *"sunum.pptx slaytlarını PNG yap"* |
+| 📖 | [`office-to-epub`](skills/office-to-epub/SKILL.md) | Metin belgesini (odt/docx) EPUB e-kitaba çevirir. | *"kitap.odt'yi epub yap"* |
+
+---
+
 ## 🔀 Git İşlemleri
 
 | İkon | Skill | Açıklama | Örnek Prompt |
@@ -155,10 +174,10 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 60 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 18 | Dosya okuma erişimi gerektirir |
+| `shell_safe` | 69 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `file_read` | 27 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
-| `file_write` | 4 | Dosya yazma erişimi (`archive-create`, `file-create`, `skill-create`, `text-replace`) |
+| `file_write` | 13 | Dosya yazma erişimi (`file-create`, `skill-create`, `text-replace`, `archive-create` + 9 LibreOffice skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
 | `notification` | 1 | Bildirim gönderme (`mac-notification`) |
 
@@ -178,6 +197,8 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 | `dig` | `dns-lookup` | `bind`/`dnsutils` |
 | `docker` | `docker-stats` | [docker.com](https://docs.docker.com/get-docker/) |
 | `pdftotext` | `pdf-text` | `brew install poppler` |
+| `pdftoppm` | `office-to-images` | `brew install poppler` |
+| `soffice` | `office-to-pdf`, `office-convert`, `spreadsheet-to-csv` … (9 Ofis skill'i) | `brew install --cask libreoffice` |
 | `whois` | `whois` | `brew install whois` |
 | `osascript` | `mac-notification` | macOS'ta yerleşik |
 | `system_profiler` | `screen-info` | macOS'ta yerleşik |
