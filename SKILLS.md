@@ -156,13 +156,13 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 | İzin | Adet | Açıklama |
 |---|:---:|---|
 | `shell_safe` | 60 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 17 | Dosya okuma erişimi gerektirir |
-| `network_read` | 7 | İnternet bağlantısı gerektirir |
+| `file_read` | 18 | Dosya okuma erişimi gerektirir |
+| `network_read` | 9 | İnternet bağlantısı gerektirir |
 | `file_write` | 4 | Dosya yazma erişimi (`archive-create`, `file-create`, `skill-create`, `text-replace`) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
 | `notification` | 1 | Bildirim gönderme (`mac-notification`) |
 
-> ⚠️ **Not:** Son eklenen bazı skill'ler standart dışı ikinci bir izin etiketi (örn. `bcrypt_gen`, `jwt_decode`) taşıyor; bunlar spec'in 14 geçerli izninden birine (genelde `shell_safe` yeterli, ağ kullananlar için `network_read`) göçürülmeli. Detay için aşağıdaki bağımlılık tablosu ve `CONTRIBUTING.md`.
+> ✅ Tüm skill'ler Ajanox Skill Spec v1.0'ın 14 geçerli izninden birini kullanır (`sudo` ve standart dışı etiketler yoktur).
 
 ---
 
