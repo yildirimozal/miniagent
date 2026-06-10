@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 69 skill** · 10 kategori
+> **Toplam: 78 skill** · 11 kategori
 
 ---
 
@@ -18,6 +18,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
 | [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
+| [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔀 Git İşlemleri](#-git-i̇şlemleri) | 6 | Log, status, diff, branch, conflict, gitignore |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 3 | Satır/kelime sayımı, slugify, bul-değiştir |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 2 | Tarih aritmetiği, zaman dilimi dönüşümü |
@@ -127,6 +128,24 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 
 ---
 
+## 🎬 Medya
+
+> ℹ️ Bu kategorideki skill'ler **ffmpeg** (video) veya **sips/ImageMagick** (görsel) gerektirir.
+
+| İkon | Skill | Açıklama | Örnek Prompt |
+|:---:|---|---|---|
+| 📐 | [`image-resize`](skills/image-resize/SKILL.md) | Bir görseli belirtilen boyuta/yüzdeye yeniden boyutlandırır. | *"foto.jpg'i 800px genişliğe küçült"* |
+| 🖼️ | [`image-convert`](skills/image-convert/SKILL.md) | Görseli formatlar arası çevirir (png↔jpg↔webp↔heic). | *"foto.png'i jpg yap"* |
+| 🗜️ | [`image-compress`](skills/image-compress/SKILL.md) | Görselin dosya boyutunu kaliteyi ayarlayarak küçültür. | *"banner.jpg'i sıkıştır"* |
+| 🎞️ | [`video-to-gif`](skills/video-to-gif/SKILL.md) | Bir videoyu (veya kısmını) animasyonlu GIF'e çevirir. | *"klip.mp4'ü gif yap"* |
+| 🎬 | [`video-frames`](skills/video-frames/SKILL.md) | Bir videoyu tek tek kare (PNG/JPG) görsellere ayırır. | *"video.mp4'ü karelerine ayır"* |
+| 🎵 | [`extract-audio`](skills/extract-audio/SKILL.md) | Videodan ses parçasını çıkarıp ses dosyası olarak kaydeder. | *"ders.mp4'ten sesi mp3 yap"* |
+| 📉 | [`video-compress`](skills/video-compress/SKILL.md) | Videonun dosya boyutunu H.264/CRF ile küçültür. | *"büyük-video.mov'u sıkıştır"* |
+| 📺 | [`video-info`](skills/video-info/SKILL.md) | Medya dosyasının süre, çözünürlük, codec bilgisini gösterir. | *"video.mp4 kaç saniye?"* |
+| 📑 | [`image-to-pdf`](skills/image-to-pdf/SKILL.md) | Bir veya birden fazla görseli tek PDF'te birleştirir. | *"taramaları tek PDF yap"* |
+
+---
+
 ## 🔀 Git İşlemleri
 
 | İkon | Skill | Açıklama | Örnek Prompt |
@@ -174,10 +193,10 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 69 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 27 | Dosya okuma erişimi gerektirir |
+| `shell_safe` | 78 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `file_read` | 36 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
-| `file_write` | 13 | Dosya yazma erişimi (`file-create`, `skill-create`, `text-replace`, `archive-create` + 9 LibreOffice skill'i) |
+| `file_write` | 21 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya skill'i; `video-info` salt-okunur) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
 | `notification` | 1 | Bildirim gönderme (`mac-notification`) |
 
@@ -199,6 +218,8 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 | `pdftotext` | `pdf-text` | `brew install poppler` |
 | `pdftoppm` | `office-to-images` | `brew install poppler` |
 | `soffice` | `office-to-pdf`, `office-convert`, `spreadsheet-to-csv` … (9 Ofis skill'i) | `brew install --cask libreoffice` |
+| `ffmpeg` / `ffprobe` | `video-to-gif`, `video-frames`, `extract-audio`, `video-compress`, `video-info` | `brew install ffmpeg` |
+| `sips` / ImageMagick | `image-resize`, `image-convert`, `image-compress`, `image-to-pdf` | `sips` macOS'ta yerleşik; `brew install imagemagick` |
 | `whois` | `whois` | `brew install whois` |
 | `osascript` | `mac-notification` | macOS'ta yerleşik |
 | `system_profiler` | `screen-info` | macOS'ta yerleşik |
