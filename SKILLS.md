@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 85 skill** · 12 kategori
+> **Toplam: 94 skill** · 12 kategori
 
 ---
 
@@ -20,9 +20,9 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
-| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 6 | Log, status, diff, branch, conflict, gitignore |
-| [📝 Metin İşleme](#-metin-i̇şleme) | 3 | Satır/kelime sayımı, slugify, bul-değiştir |
-| [⏰ Tarih & Zaman](#-tarih--zaman) | 2 | Tarih aritmetiği, zaman dilimi dönüşümü |
+| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 9 | Log, status, diff, branch, conflict, gitignore, blame, stash, tag |
+| [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
+| [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
 
 ---
@@ -173,6 +173,9 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🌿 | [`git-branch`](skills/git-branch/SKILL.md) | Repodaki branch'leri listeler ve aktif branch'i gösterir. | *"Bu repodaki branch'ler neler?"* |
 | ⚔️ | [`git-conflict-finder`](skills/git-conflict-finder/SKILL.md) | Çözülmemiş Git conflict (çakışma) noktalarını bulur. | *"Projede çözülmemiş conflict var mı?"* |
 | 🙈 | [`git-ignore-gen`](skills/git-ignore-gen/SKILL.md) | Belirtilen teknolojiler için hazır `.gitignore` şablonu oluşturur. | *"Node, Python ve macOS için gitignore"* |
+| 👤 | [`git-blame`](skills/git-blame/SKILL.md) | Bir dosyanın her satırını kimin/hangi commit'te değiştirdiğini gösterir. | *"agent.py 50-60. satırları kim yazmış?"* |
+| 📦 | [`git-stash`](skills/git-stash/SKILL.md) | Stash'leri (geçici kaydedilmiş değişiklikler) listeler ve gösterir. | *"bu repoda stash'te ne var?"* |
+| 🏷️ | [`git-tag`](skills/git-tag/SKILL.md) | Tag'leri listeler veya yeni sürüm etiketi oluşturur. | *"bu repodaki tag'leri göster"* |
 
 ---
 
@@ -183,6 +186,10 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 📏 | [`wc-stats`](skills/wc-stats/SKILL.md) | Bir dosyanın satır, kelime ve karakter sayısını verir. | *"notes.md kaç satır?"* |
 | 🔗 | [`slugify`](skills/slugify/SKILL.md) | Bir metni URL-uyumlu slug haline getirir. | *"'Merhaba Dünya!' başlığını slug yap"* |
 | 🔤 | [`text-replace`](skills/text-replace/SKILL.md) | Bir dosyadaki belirli bir metni bulup başkasıyla değiştirir. | *"config.txt'te 'localhost' → '192.168.1.1'"* |
+| 🔢 | [`sort-lines`](skills/sort-lines/SKILL.md) | Bir dosyanın satırlarını sıralar (alfabetik/sayısal/ters/benzersiz). | *"liste.txt'i alfabetik sırala"* |
+| ♻️ | [`dedup-lines`](skills/dedup-lines/SKILL.md) | Tekrar eden satırları kaldırır (sıra korunabilir). | *"liste.txt'teki tekrarları temizle"* |
+| 🔡 | [`case-convert`](skills/case-convert/SKILL.md) | Metni büyük/küçük/başlık (Title) harfe çevirir. | *"şu metni büyük harf yap"* |
+| 🔎 | [`count-occurrences`](skills/count-occurrences/SKILL.md) | Bir dosyada bir kelime/desenin kaç kez geçtiğini sayar. | *"log.txt'te 'ERROR' kaç kez geçiyor?"* |
 
 ---
 
@@ -192,6 +199,8 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 |:---:|---|---|---|
 | 📅 | [`date-calc`](skills/date-calc/SKILL.md) | Tarih aritmetiği yapar (N gün/ay sonra/önce hangi tarih). | *"Bugünden 90 gün sonra hangi tarih?"* |
 | 🌍 | [`timezone-convert`](skills/timezone-convert/SKILL.md) | Zamanı farklı zaman dilimleri arasında çevirir. | *"İstanbul'da 15:00, New York'ta kaç?"* |
+| ⏱️ | [`epoch-convert`](skills/epoch-convert/SKILL.md) | Unix timestamp ↔ insan-okunur tarih dönüşümü. | *"1700000000 hangi tarih?"* |
+| 📆 | [`days-between`](skills/days-between/SKILL.md) | İki tarih arasındaki gün sayısını hesaplar. | *"2026-01-01 ile bugün arası kaç gün?"* |
 
 ---
 
@@ -210,8 +219,8 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 85 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 42 | Dosya okuma erişimi gerektirir |
+| `shell_safe` | 94 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `file_read` | 46 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
 | `file_write` | 25 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + 4 Güvenlik skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
