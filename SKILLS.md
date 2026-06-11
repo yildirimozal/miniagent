@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 78 skill** · 11 kategori
+> **Toplam: 85 skill** · 12 kategori
 
 ---
 
@@ -19,6 +19,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
+| [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
 | [🔀 Git İşlemleri](#-git-i̇şlemleri) | 6 | Log, status, diff, branch, conflict, gitignore |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 3 | Satır/kelime sayımı, slugify, bul-değiştir |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 2 | Tarih aritmetiği, zaman dilimi dönüşümü |
@@ -146,6 +147,22 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 
 ---
 
+## 🔐 Güvenlik & Şifreleme
+
+> ℹ️ Bu skill'ler `gpg`, `age`, `ssh-keygen`, `oathtool` gibi araçlar gerektirir. Gizli veriyi (parola, secret) komut satırına değil, dosyaya yazıp oradan okuyun.
+
+| İkon | Skill | Açıklama | Örnek Prompt |
+|:---:|---|---|---|
+| 🔒 | [`gpg-encrypt`](skills/gpg-encrypt/SKILL.md) | Bir dosyayı GPG ile şifreler (parola veya alıcı anahtarı). | *"gizli.pdf'i parolayla şifrele"* |
+| 🔓 | [`gpg-decrypt`](skills/gpg-decrypt/SKILL.md) | GPG ile şifrelenmiş dosyayı (.gpg/.asc) çözer. | *"gizli.pdf.gpg'i çöz"* |
+| 🛡️ | [`age-encrypt`](skills/age-encrypt/SKILL.md) | Dosyayı `age` ile şifreler/çözer (modern, sade). | *"notlar.txt'i age ile şifrele"* |
+| 🗝️ | [`ssh-keygen`](skills/ssh-keygen/SKILL.md) | Yeni SSH anahtar çifti (ed25519/RSA) üretir. | *"github için ssh anahtarı oluştur"* |
+| 🔢 | [`totp-gen`](skills/totp-gen/SKILL.md) | TOTP secret'tan anlık 2FA kodu üretir. | *"şu TOTP secret için kod üret"* |
+| 💪 | [`password-strength`](skills/password-strength/SKILL.md) | Bir parolanın gücünü (entropi) kabaca değerlendirir. | *"şu parola ne kadar güçlü?"* |
+| ✅ | [`verify-checksum`](skills/verify-checksum/SKILL.md) | Dosyayı beklenen sha256/md5 ile karşılaştırıp doğrular. | *"installer.dmg'in sha256'sı şu mu: ..."* |
+
+---
+
 ## 🔀 Git İşlemleri
 
 | İkon | Skill | Açıklama | Örnek Prompt |
@@ -193,10 +210,10 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 78 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 36 | Dosya okuma erişimi gerektirir |
+| `shell_safe` | 85 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `file_read` | 42 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
-| `file_write` | 21 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya skill'i; `video-info` salt-okunur) |
+| `file_write` | 25 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + 4 Güvenlik skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
 | `notification` | 1 | Bildirim gönderme (`mac-notification`) |
 
@@ -220,6 +237,9 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 | `soffice` | `office-to-pdf`, `office-convert`, `spreadsheet-to-csv` … (9 Ofis skill'i) | `brew install --cask libreoffice` |
 | `ffmpeg` / `ffprobe` | `video-to-gif`, `video-frames`, `extract-audio`, `video-compress`, `video-info` | `brew install ffmpeg` |
 | `sips` / ImageMagick | `image-resize`, `image-convert`, `image-compress`, `image-to-pdf` | `sips` macOS'ta yerleşik; `brew install imagemagick` |
+| `gpg` | `gpg-encrypt`, `gpg-decrypt` | `brew install gnupg` |
+| `age` | `age-encrypt` | `brew install age` |
+| `oathtool` | `totp-gen` | `brew install oath-toolkit` |
 | `whois` | `whois` | `brew install whois` |
 | `osascript` | `mac-notification` | macOS'ta yerleşik |
 | `system_profiler` | `screen-info` | macOS'ta yerleşik |
