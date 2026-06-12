@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 94 skill** · 12 kategori
+> **Toplam: 95 skill** · 12 kategori
 
 ---
 
@@ -13,7 +13,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | Kategori | Adet | Açıklama |
 |---|:---:|---|
 | [🖥️ Sistem & Donanım](#%EF%B8%8F-sistem--donanım) | 9 | OS, CPU, RAM, disk, pil, ekran, Docker, bildirim |
-| [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 9 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata |
+| [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 10 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç |
 | [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 10 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
 | [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
@@ -56,6 +56,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🔒 | [`hash-file`](skills/hash-file/SKILL.md) | Bir dosyanın sha256 veya md5 checksum'unu hesaplar. | *"installer.dmg'in sha256 hash'i ne?"* |
 | 🖼️ | [`image-info`](skills/image-info/SKILL.md) | Bir görsel dosyanın boyut, format ve metadata bilgisini gösterir. | *"foto.jpg'in çözünürlüğü ne?"* |
 | 📄 | [`pdf-text`](skills/pdf-text/SKILL.md) | Bir PDF dosyasından düz metni çıkarır. | *"Şu PDF'in metnini çıkar: rapor.pdf"* |
+| 🌲 | [`dir-tree`](skills/dir-tree/SKILL.md) | Bir dizinin ağaç görünümünü (alt klasör + dosya) çıkarır. | *"~/Projeler'in ağaç yapısını göster"* |
 
 ---
 
@@ -219,8 +220,8 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 94 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 46 | Dosya okuma erişimi gerektirir |
+| `shell_safe` | 95 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `file_read` | 47 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
 | `file_write` | 25 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + 4 Güvenlik skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
