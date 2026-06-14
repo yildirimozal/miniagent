@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 96 skill** · 12 kategori
+> **Toplam: 97 skill** · 12 kategori
 
 ---
 
@@ -20,7 +20,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
-| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 9 | Log, status, diff, branch, conflict, gitignore, blame, stash, tag |
+| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 10 | Log, status, diff, branch, conflict, gitignore, blame, stash, tag, undo |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
@@ -178,6 +178,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 👤 | [`git-blame`](skills/git-blame/SKILL.md) | Bir dosyanın her satırını kimin/hangi commit'te değiştirdiğini gösterir. | *"agent.py 50-60. satırları kim yazmış?"* |
 | 📦 | [`git-stash`](skills/git-stash/SKILL.md) | Stash'leri (geçici kaydedilmiş değişiklikler) listeler ve gösterir. | *"bu repoda stash'te ne var?"* |
 | 🏷️ | [`git-tag`](skills/git-tag/SKILL.md) | Tag'leri listeler veya yeni sürüm etiketi oluşturur. | *"bu repodaki tag'leri göster"* |
+| ↩️ | [`git-undo`](skills/git-undo/SKILL.md) | Yaygın Git hatalarını (commit/add/push) güvenle geri alma rehberi. | *"son commit'i geri al, değişikliklerim kalsın"* |
 
 ---
 
@@ -221,7 +222,7 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 96 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 97 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
 | `file_read` | 47 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
