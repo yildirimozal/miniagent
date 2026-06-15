@@ -106,13 +106,13 @@ python3 agent.py
 
 ```
 Mini Agent v2 (qwen2.5:7b)
-Yuklenen skill sayisi: 60
+Yuklenen skill sayisi: 95
   - api-health-check: Bir API/web adresine istek atıp HTTP durumunu ve gecikmeyi ölçer.
   - archive-create: Dosya veya klasörlerden zip ya da tar.gz arşivi oluşturur.
   - base64-codec: Metni veya dosyayı base64 ile encode/decode eder.
   - battery: Pil durumunu (şarj %'si, AC bağlı mı, kalan süre) gösterir.
   - bcrypt-gen: Verilen düz metni (şifreyi) bcrypt algoritması ile hashler.
-  ... (toplam 60 skill — tam liste: SKILLS.md)
+  ... (toplam 95 skill — tam liste: SKILLS.md)
 Cikmak icin 'q'
 
 Sen:
@@ -429,7 +429,7 @@ Bu repo bir **iskelet**. OpenClaw'a doğru büyütmek için sıradaki adımlar:
 |---|---|---|---|
 | **v1** | Temel agent loop, 3 hardcoded tool (`list_files`/`read_file`/`calculator`), ~117 satır | [tree/v1](https://github.com/yildirimozal/miniagent/tree/v1) | `git clone --branch v1 https://github.com/yildirimozal/miniagent` |
 | **v2** | Skill loader + lazy load (OpenClaw stili), 3 primitive + 3 skill, ~257 satır | [tree/v2](https://github.com/yildirimozal/miniagent/tree/v2) | `git clone --branch v2 https://github.com/yildirimozal/miniagent` |
-| **main** | v2 + ek skill'ler ve repo dokümanları (3 primitive + 60 skill) | [tree/main](https://github.com/yildirimozal/miniagent) | `git clone https://github.com/yildirimozal/miniagent` |
+| **main** | v2 + ek skill'ler ve repo dokümanları (3 primitive + 95 skill) | [tree/main](https://github.com/yildirimozal/miniagent) | `git clone https://github.com/yildirimozal/miniagent` |
 
 Tag'ler: [`v1.0`](https://github.com/yildirimozal/miniagent/releases/tag/v1.0) · [`v2.0`](https://github.com/yildirimozal/miniagent/releases/tag/v2.0)
 
