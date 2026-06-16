@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 98 skill** · 12 kategori
+> **Toplam: 99 skill** · 12 kategori
 
 ---
 
@@ -14,7 +14,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 |---|:---:|---|
 | [🖥️ Sistem & Donanım](#%EF%B8%8F-sistem--donanım) | 9 | OS, CPU, RAM, disk, pil, ekran, Docker, bildirim |
 | [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 10 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç |
-| [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 11 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar, port kapatma |
+| [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 12 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar, port kapatma, DNS temizleme |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
 | [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
@@ -77,6 +77,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🔌 | [`open-ports`](skills/open-ports/SKILL.md) | Makinedeki açık portları ve dinleyen süreçleri listeler. | *"Hangi portlar açık?"* | ❌ |
 | 🔌 | [`network-interfaces`](skills/network-interfaces/SKILL.md) | Yerel ağ arabirimlerini ve IP adreslerini listeler. | *"Hangi network interface'lere bağlıyım?"* | ❌ |
 | 🔌 | [`kill-port`](skills/kill-port/SKILL.md) | Bir portu dinleyen süreci bulup onaylı şekilde sonlandırır. | *"3000 portunu kullanan süreci kapat"* | ❌ |
+| 🌊 | [`flush-dns`](skills/flush-dns/SKILL.md) | OS/çözücüyü tespit edip DNS önbelleğini temizleme komutunu verir. | *"DNS önbelleğini temizle"* | ❌ |
 
 ---
 
@@ -223,7 +224,7 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 98 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 99 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
 | `file_read` | 47 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
