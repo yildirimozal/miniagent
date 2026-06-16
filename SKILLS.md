@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 95 skill** · 12 kategori
+> **Toplam: 100 skill** · 12 kategori
 
 ---
 
@@ -13,14 +13,14 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | Kategori | Adet | Açıklama |
 |---|:---:|---|
 | [🖥️ Sistem & Donanım](#%EF%B8%8F-sistem--donanım) | 9 | OS, CPU, RAM, disk, pil, ekran, Docker, bildirim |
-| [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 9 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata |
-| [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 10 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar |
+| [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 10 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç |
+| [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 12 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar, port kapatma, DNS temizleme |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
 | [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
-| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 10 | Log, status, diff, branch, conflict, güvenlik kontrolü, gitignore, blame, stash, tag |
+| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 12 | Log, status, diff, branch, conflict, güvenlik kontrolü, gitignore, blame, stash, tag, undo, cleanup |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
@@ -56,6 +56,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🔒 | [`hash-file`](skills/hash-file/SKILL.md) | Bir dosyanın sha256 veya md5 checksum'unu hesaplar. | *"installer.dmg'in sha256 hash'i ne?"* |
 | 🖼️ | [`image-info`](skills/image-info/SKILL.md) | Bir görsel dosyanın boyut, format ve metadata bilgisini gösterir. | *"foto.jpg'in çözünürlüğü ne?"* |
 | 📄 | [`pdf-text`](skills/pdf-text/SKILL.md) | Bir PDF dosyasından düz metni çıkarır. | *"Şu PDF'in metnini çıkar: rapor.pdf"* |
+| 🌲 | [`dir-tree`](skills/dir-tree/SKILL.md) | Bir dizinin ağaç görünümünü (alt klasör + dosya) çıkarır. | *"~/Projeler'in ağaç yapısını göster"* |
 
 ---
 
@@ -75,6 +76,8 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🩺 | [`api-health-check`](skills/api-health-check/SKILL.md) | Bir API/web adresine istek atıp HTTP durumunu ve gecikmeyi ölçer. | *"API ayakta mı: https://api.github.com"* | ✅ |
 | 🔌 | [`open-ports`](skills/open-ports/SKILL.md) | Makinedeki açık portları ve dinleyen süreçleri listeler. | *"Hangi portlar açık?"* | ❌ |
 | 🔌 | [`network-interfaces`](skills/network-interfaces/SKILL.md) | Yerel ağ arabirimlerini ve IP adreslerini listeler. | *"Hangi network interface'lere bağlıyım?"* | ❌ |
+| 🔌 | [`kill-port`](skills/kill-port/SKILL.md) | Bir portu dinleyen süreci bulup onaylı şekilde sonlandırır. | *"3000 portunu kullanan süreci kapat"* | ❌ |
+| 🌊 | [`flush-dns`](skills/flush-dns/SKILL.md) | OS/çözücüyü tespit edip DNS önbelleğini temizleme komutunu verir. | *"DNS önbelleğini temizle"* | ❌ |
 
 ---
 
@@ -172,11 +175,13 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🔀 | [`git-diff`](skills/git-diff/SKILL.md) | Working tree veya staged değişiklikleri gösterir. | *"Staged olmayan değişiklikleri göster"* |
 | 🌿 | [`git-branch`](skills/git-branch/SKILL.md) | Repodaki branch'leri listeler ve aktif branch'i gösterir. | *"Bu repodaki branch'ler neler?"* |
 | ⚔️ | [`git-conflict-finder`](skills/git-conflict-finder/SKILL.md) | Çözülmemiş Git conflict (çakışma) noktalarını bulur. | *"Projede çözülmemiş conflict var mı?"* |
+| 🛡️ | [`repo-safety-check`](skills/repo-safety-check/SKILL.md) | Commit veya PR öncesi secret sızıntısı, conflict marker, büyük dosya ve diff hijyeni kontrolü yapar. | *"Bu repoyu commit atmadan önce güvenlik açısından kontrol et"* |
 | 🙈 | [`git-ignore-gen`](skills/git-ignore-gen/SKILL.md) | Belirtilen teknolojiler için hazır `.gitignore` şablonu oluşturur. | *"Node, Python ve macOS için gitignore"* |
 | 👤 | [`git-blame`](skills/git-blame/SKILL.md) | Bir dosyanın her satırını kimin/hangi commit'te değiştirdiğini gösterir. | *"agent.py 50-60. satırları kim yazmış?"* |
 | 📦 | [`git-stash`](skills/git-stash/SKILL.md) | Stash'leri (geçici kaydedilmiş değişiklikler) listeler ve gösterir. | *"bu repoda stash'te ne var?"* |
 | 🏷️ | [`git-tag`](skills/git-tag/SKILL.md) | Tag'leri listeler veya yeni sürüm etiketi oluşturur. | *"bu repodaki tag'leri göster"* |
-| 🛡️ | [`repo-safety-check`](skills/repo-safety-check/SKILL.md) | Commit veya PR öncesi secret sızıntısı, conflict marker, büyük dosya ve diff hijyeni kontrolü yapar. | *"Bu repoyu commit atmadan önce güvenlik açısından kontrol et"* |
+| ↩️ | [`git-undo`](skills/git-undo/SKILL.md) | Yaygın Git hatalarını (commit/add/push) güvenle geri alma rehberi. | *"son commit'i geri al, değişikliklerim kalsın"* |
+| 🧹 | [`git-cleanup`](skills/git-cleanup/SKILL.md) | Merge edilmiş yerel branch'leri bulup onaylı şekilde toplu siler. | *"merge olmuş eski branch'leri temizle"* |
 
 ---
 
@@ -220,8 +225,9 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 95 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
-| `file_read` | 47 | Dosya okuma erişimi gerektirir |
+| `shell_safe` | 100 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
+| `file_read` | 48 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
 | `file_write` | 25 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + 4 Güvenlik skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
