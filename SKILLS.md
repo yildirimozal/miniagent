@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 100 skill** · 12 kategori
+> **Toplam: 101 skill** · 12 kategori
 
 ---
 
@@ -20,7 +20,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
-| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 12 | Log, status, diff, branch, conflict, güvenlik kontrolü, gitignore, blame, stash, tag, undo, cleanup |
+| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 13 | Log, status, diff, branch, conflict, güvenlik kontrolü, gitignore, blame, search, stash, tag, undo, cleanup |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
@@ -178,6 +178,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🛡️ | [`repo-safety-check`](skills/repo-safety-check/SKILL.md) | Commit veya PR öncesi secret sızıntısı, conflict marker, büyük dosya ve diff hijyeni kontrolü yapar. | *"Bu repoyu commit atmadan önce güvenlik açısından kontrol et"* |
 | 🙈 | [`git-ignore-gen`](skills/git-ignore-gen/SKILL.md) | Belirtilen teknolojiler için hazır `.gitignore` şablonu oluşturur. | *"Node, Python ve macOS için gitignore"* |
 | 👤 | [`git-blame`](skills/git-blame/SKILL.md) | Bir dosyanın her satırını kimin/hangi commit'te değiştirdiğini gösterir. | *"agent.py 50-60. satırları kim yazmış?"* |
+| 🕵️ | [`git-search`](skills/git-search/SKILL.md) | Git geçmişinde kod/değişiklik/commit mesajı arar (pickaxe). | *"'API_KEY' ne zaman eklendi?"* |
 | 📦 | [`git-stash`](skills/git-stash/SKILL.md) | Stash'leri (geçici kaydedilmiş değişiklikler) listeler ve gösterir. | *"bu repoda stash'te ne var?"* |
 | 🏷️ | [`git-tag`](skills/git-tag/SKILL.md) | Tag'leri listeler veya yeni sürüm etiketi oluşturur. | *"bu repodaki tag'leri göster"* |
 | ↩️ | [`git-undo`](skills/git-undo/SKILL.md) | Yaygın Git hatalarını (commit/add/push) güvenle geri alma rehberi. | *"son commit'i geri al, değişikliklerim kalsın"* |
@@ -225,7 +226,7 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 100 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 101 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
 | `file_read` | 48 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
