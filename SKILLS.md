@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 101 skill** · 12 kategori
+> **Toplam: 102 skill** · 12 kategori
 
 ---
 
@@ -16,7 +16,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 10 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç |
 | [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 12 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar, port kapatma, DNS temizleme |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
-| [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 8 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri |
+| [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 9 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri, jq sorgu |
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
@@ -104,6 +104,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | İkon | Skill | Açıklama | Örnek Prompt |
 |:---:|---|---|---|
 | 🧾 | [`json-format`](skills/json-format/SKILL.md) | JSON verisini düzgün biçimlendirir (pretty print) ve doğrular. | *"Şu config.json'u formatla"* |
+| 🔍 | [`json-query`](skills/json-query/SKILL.md) | Bir JSON dosyasından jq ile değer çeker, filtreler, dönüştürür. | *"data.json'daki e-postaları listele"* |
 | 📑 | [`csv-preview`](skills/csv-preview/SKILL.md) | Bir CSV dosyasının ilk N satırını sütun hizalı gösterir. | *"data.csv'nin ilk 10 satırı"* |
 | 🔄 | [`json-to-csv`](skills/json-to-csv/SKILL.md) | JSON verisini CSV formatına dönüştürür veya tersini yapar. | *"data.json'u CSV'ye çevir"* |
 | 📘 | [`json-to-ts`](skills/json-to-ts/SKILL.md) | Bir JSON objesinden TypeScript Interface oluşturur. | *"Şu JSON'dan TS interface yap"* |
@@ -226,9 +227,9 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 101 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 102 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
-| `file_read` | 48 | Dosya okuma erişimi gerektirir |
+| `file_read` | 49 | Dosya okuma erişimi gerektirir |
 | `network_read` | 9 | İnternet bağlantısı gerektirir |
 | `file_write` | 25 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + 4 Güvenlik skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
