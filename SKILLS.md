@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 103 skill** · 12 kategori
+> **Toplam: 104 skill** · 12 kategori
 
 ---
 
@@ -12,7 +12,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 
 | Kategori | Adet | Açıklama |
 |---|:---:|---|
-| [🖥️ Sistem & Donanım](#%EF%B8%8F-sistem--donanım) | 9 | OS, CPU, RAM, disk, pil, ekran, Docker, bildirim |
+| [🖥️ Sistem & Donanım](#%EF%B8%8F-sistem--donanım) | 10 | OS, CPU, RAM, disk, pil, ekran, Docker, bildirim, uyku engelleme |
 | [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 10 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç |
 | [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 13 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar, port kapatma/test, DNS temizleme |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
@@ -40,6 +40,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🖥️ | [`screen-info`](skills/screen-info/SKILL.md) | Bağlı ekranların çözünürlük, refresh rate ve renk derinliği bilgisi. | *"Ekranımın çözünürlüğü ne?"* |
 | 🐳 | [`docker-stats`](skills/docker-stats/SKILL.md) | Çalışan Docker konteynerlerinin kaynak kullanımını gösterir. | *"Hangi docker konteynerleri ne kadar RAM yiyor?"* |
 | 🔔 | [`mac-notification`](skills/mac-notification/SKILL.md) | macOS'ta masaüstü bildirimi gösterir. Sadece Mac'te çalışır. | *"Bana 'mola zamanı' diye bildirim gönder"* |
+| ☕ | [`keep-awake`](skills/keep-awake/SKILL.md) | Bilgisayarı belirli süre/komut bitene kadar uyutmaz (caffeinate). | *"bilgisayarı 1 saat uyutma"* |
 
 ---
 
@@ -228,7 +229,7 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 103 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 104 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
 | `file_read` | 49 | Dosya okuma erişimi gerektirir |
 | `network_read` | 10 | İnternet bağlantısı gerektirir |
