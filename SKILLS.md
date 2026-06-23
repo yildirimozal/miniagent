@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 104 skill** · 12 kategori
+> **Toplam: 106 skill** · 12 kategori
 
 ---
 
@@ -20,7 +20,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 7 | GPG/age şifreleme, SSH/TOTP, parola, checksum |
-| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 13 | Log, status, diff, branch, conflict, güvenlik kontrolü, gitignore, blame, search, stash, tag, undo, cleanup |
+| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 15 | Log, status, diff, branch, conflict, güvenlik, gitignore, blame, search, stash, tag, undo, cleanup, sync, katkıcılar |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
@@ -186,6 +186,8 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🏷️ | [`git-tag`](skills/git-tag/SKILL.md) | Tag'leri listeler veya yeni sürüm etiketi oluşturur. | *"bu repodaki tag'leri göster"* |
 | ↩️ | [`git-undo`](skills/git-undo/SKILL.md) | Yaygın Git hatalarını (commit/add/push) güvenle geri alma rehberi. | *"son commit'i geri al, değişikliklerim kalsın"* |
 | 🧹 | [`git-cleanup`](skills/git-cleanup/SKILL.md) | Merge edilmiş yerel branch'leri bulup onaylı şekilde toplu siler. | *"merge olmuş eski branch'leri temizle"* |
+| 🔄 | [`git-sync`](skills/git-sync/SKILL.md) | Mevcut branch'i uzaktan güvenle günceller (fetch + fast-forward). | *"bu branch'i uzaktan güncelle"* |
+| 👥 | [`git-contributors`](skills/git-contributors/SKILL.md) | Katkıcıları commit sayısına göre sıralı listeler. | *"bu repoya kim ne kadar katkı vermiş?"* |
 
 ---
 
@@ -229,10 +231,10 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 104 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 106 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
 | `file_read` | 49 | Dosya okuma erişimi gerektirir |
-| `network_read` | 10 | İnternet bağlantısı gerektirir |
+| `network_read` | 11 | İnternet bağlantısı gerektirir |
 | `file_write` | 25 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + 4 Güvenlik skill'i) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
 | `notification` | 1 | Bildirim gönderme (`mac-notification`) |
