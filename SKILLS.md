@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 109 skill** · 12 kategori
+> **Toplam: 113 skill** · 12 kategori
 
 ---
 
@@ -13,14 +13,14 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | Kategori | Adet | Açıklama |
 |---|:---:|---|
 | [🖥️ Sistem & Donanım](#%EF%B8%8F-sistem--donanım) | 10 | OS, CPU, RAM, disk, pil, ekran, Docker, bildirim, uyku engelleme |
-| [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 11 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç, kopya bulma |
+| [📂 Dosya İşlemleri](#-dosya-i̇şlemleri) | 12 | Arama, oluşturma, karşılaştırma, arşiv, hash, metadata, ağaç, kopya, tür tespiti |
 | [🌐 Ağ & İnternet](#-ağ--i̇nternet) | 14 | DNS, WHOIS, HTTP, TLS, ping, IP, portlar, port kapatma/test, DNS, URL çözme |
 | [🔧 Geliştirici Araçları](#-geliştirici-araçları) | 11 | Encoding, UUID, şifre, hash, JWT, regex, cron |
-| [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 9 | JSON, CSV, YAML, XML, SQL, TS dönüşümleri, jq sorgu |
+| [🗂️ Veri & Format](#%EF%B8%8F-veri--format) | 10 | JSON, CSV, YAML, XML, SQL, TS, jq sorgu, CSV istatistik |
 | [📑 Ofis / Belge](#-ofis--belge) | 9 | LibreOffice: PDF, format dönüşümü, metin, görsel, epub |
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
-| [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 8 | GPG/age şifreleme, SSH/TOTP, parola, checksum, EXIF temizleme |
-| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 15 | Log, status, diff, branch, conflict, güvenlik, gitignore, blame, search, stash, tag, undo, cleanup, sync, katkıcılar |
+| [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 9 | GPG/age, SSH/TOTP, parola, checksum, EXIF temizleme, maskeleme |
+| [🔀 Git İşlemleri](#-git-i̇şlemleri) | 16 | Log, status, diff, branch, conflict, güvenlik, gitignore, blame, search, stash, tag, undo, cleanup, sync, katkıcılar, kimlik |
 | [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
@@ -59,6 +59,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 📄 | [`pdf-text`](skills/pdf-text/SKILL.md) | Bir PDF dosyasından düz metni çıkarır. | *"Şu PDF'in metnini çıkar: rapor.pdf"* |
 | 🌲 | [`dir-tree`](skills/dir-tree/SKILL.md) | Bir dizinin ağaç görünümünü (alt klasör + dosya) çıkarır. | *"~/Projeler'in ağaç yapısını göster"* |
 | 👯 | [`duplicate-finder`](skills/duplicate-finder/SKILL.md) | İçerikçe aynı (yinelenen) dosyaları hash'e göre bulur. | *"~/Downloads'taki kopyaları bul"* |
+| 🔬 | [`file-type`](skills/file-type/SKILL.md) | Bir dosyanın gerçek türünü uzantıdan bağımsız tespit eder. | *"bu uzantısız dosya aslında ne?"* |
 
 ---
 
@@ -109,6 +110,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 |:---:|---|---|---|
 | 🧾 | [`json-format`](skills/json-format/SKILL.md) | JSON verisini düzgün biçimlendirir (pretty print) ve doğrular. | *"Şu config.json'u formatla"* |
 | 🔍 | [`json-query`](skills/json-query/SKILL.md) | Bir JSON dosyasından jq ile değer çeker, filtreler, dönüştürür. | *"data.json'daki e-postaları listele"* |
+| 📊 | [`csv-stats`](skills/csv-stats/SKILL.md) | Bir CSV sütununun istatistiği (sayı/toplam/ort/min/max). | *"satislar.csv 3. sütun ortalaması?"* |
 | 📑 | [`csv-preview`](skills/csv-preview/SKILL.md) | Bir CSV dosyasının ilk N satırını sütun hizalı gösterir. | *"data.csv'nin ilk 10 satırı"* |
 | 🔄 | [`json-to-csv`](skills/json-to-csv/SKILL.md) | JSON verisini CSV formatına dönüştürür veya tersini yapar. | *"data.json'u CSV'ye çevir"* |
 | 📘 | [`json-to-ts`](skills/json-to-ts/SKILL.md) | Bir JSON objesinden TypeScript Interface oluşturur. | *"Şu JSON'dan TS interface yap"* |
@@ -169,6 +171,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 💪 | [`password-strength`](skills/password-strength/SKILL.md) | Bir parolanın gücünü (entropi) kabaca değerlendirir. | *"şu parola ne kadar güçlü?"* |
 | ✅ | [`verify-checksum`](skills/verify-checksum/SKILL.md) | Dosyayı beklenen sha256/md5 ile karşılaştırıp doğrular. | *"installer.dmg'in sha256'sı şu mu: ..."* |
 | 📷 | [`strip-exif`](skills/strip-exif/SKILL.md) | Fotoğraftan EXIF/konum metadata'sını siler (mahremiyet). | *"foto'yu paylaşmadan konum bilgisini temizle"* |
+| 🖊️ | [`redact`](skills/redact/SKILL.md) | Dosyadaki e-posta/IP/token'ları maskeleyip paylaşılabilir kopya üretir. | *"log.txt'teki mail ve IP'leri gizle"* |
 
 ---
 
@@ -191,6 +194,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | 🧹 | [`git-cleanup`](skills/git-cleanup/SKILL.md) | Merge edilmiş yerel branch'leri bulup onaylı şekilde toplu siler. | *"merge olmuş eski branch'leri temizle"* |
 | 🔄 | [`git-sync`](skills/git-sync/SKILL.md) | Mevcut branch'i uzaktan güvenle günceller (fetch + fast-forward). | *"bu branch'i uzaktan güncelle"* |
 | 👥 | [`git-contributors`](skills/git-contributors/SKILL.md) | Katkıcıları commit sayısına göre sıralı listeler. | *"bu repoya kim ne kadar katkı vermiş?"* |
+| 🪪 | [`git-whoami`](skills/git-whoami/SKILL.md) | Bu repoda commit kimliğini (isim/e-posta) gösterir. | *"bu repoda hangi mail ile commit atıyorum?"* |
 
 ---
 
@@ -234,9 +238,9 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 109 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 113 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
-| `file_read` | 51 | Dosya okuma erişimi gerektirir |
+| `file_read` | 54 | Dosya okuma erişimi gerektirir |
 | `network_read` | 12 | İnternet bağlantısı gerektirir |
 | `file_write` | 26 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + Güvenlik skill'leri) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
