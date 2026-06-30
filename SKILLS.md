@@ -4,7 +4,7 @@ Mini Agent'ın sahip olduğu tüm skill'lerin kapsamlı listesi.
 
 Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Skill Spec v1.0](https://github.com/yildirimozal/miniagent) uyumlu bir `SKILL.md` dosyası içerir. Agent çalıştığında bu dosyalar otomatik olarak taranır ve sisteme yüklenir.
 
-> **Toplam: 113 skill** · 12 kategori
+> **Toplam: 114 skill** · 12 kategori
 
 ---
 
@@ -21,7 +21,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | [🎬 Medya](#-medya) | 9 | Görsel/video: boyut, format, sıkıştırma, GIF, kare, ses |
 | [🔐 Güvenlik & Şifreleme](#-güvenlik--şifreleme) | 9 | GPG/age, SSH/TOTP, parola, checksum, EXIF temizleme, maskeleme |
 | [🔀 Git İşlemleri](#-git-i̇şlemleri) | 16 | Log, status, diff, branch, conflict, güvenlik, gitignore, blame, search, stash, tag, undo, cleanup, sync, katkıcılar, kimlik |
-| [📝 Metin İşleme](#-metin-i̇şleme) | 7 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf |
+| [📝 Metin İşleme](#-metin-i̇şleme) | 8 | Sayım, slugify, bul-değiştir, sırala, tekilleştir, harf, link çıkarma |
 | [⏰ Tarih & Zaman](#-tarih--zaman) | 4 | Tarih aritmetiği, zaman dilimi, epoch, gün farkı |
 | [🧪 Meta / Diğer](#-meta--diğer) | 2 | Skill iskeleti, şablon |
 
@@ -209,6 +209,7 @@ Her skill, `skills/` dizini altında kendi klasöründe yer alır ve [Ajanox Ski
 | ♻️ | [`dedup-lines`](skills/dedup-lines/SKILL.md) | Tekrar eden satırları kaldırır (sıra korunabilir). | *"liste.txt'teki tekrarları temizle"* |
 | 🔡 | [`case-convert`](skills/case-convert/SKILL.md) | Metni büyük/küçük/başlık (Title) harfe çevirir. | *"şu metni büyük harf yap"* |
 | 🔎 | [`count-occurrences`](skills/count-occurrences/SKILL.md) | Bir dosyada bir kelime/desenin kaç kez geçtiğini sayar. | *"log.txt'te 'ERROR' kaç kez geçiyor?"* |
+| 🔗 | [`extract-links`](skills/extract-links/SKILL.md) | Bir dosyadan tüm URL'leri benzersiz liste halinde çıkarır. | *"rapor.md içindeki tüm linkleri çıkar"* |
 
 ---
 
@@ -238,9 +239,9 @@ Her skill, `SKILL.md` frontmatter'ında hangi izinleri gerektirdiğini belirtir.
 
 | İzin | Adet | Açıklama |
 |---|:---:|---|
-| `shell_safe` | 113 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
+| `shell_safe` | 114 | Güvenli shell komutu çalıştırır (tüm skill'ler) |
 | `process_control` | 1 | Süreç sonlandırma/kontrol (`kill-port`) |
-| `file_read` | 54 | Dosya okuma erişimi gerektirir |
+| `file_read` | 55 | Dosya okuma erişimi gerektirir |
 | `network_read` | 12 | İnternet bağlantısı gerektirir |
 | `file_write` | 26 | Dosya yazma erişimi (dosya/arşiv/şablon + 9 LibreOffice + 8 Medya + Güvenlik skill'leri) |
 | `system_info` | 3 | Sistem bilgisi erişimi (`memory-usage`, `open-ports`, `system-info`) |
